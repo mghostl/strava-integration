@@ -1,0 +1,50 @@
+
+spring:
+  liquibase:
+    enabled: true
+  application:
+    admin:
+      enabled: true
+  boot:
+    admin:
+      client:
+        url: http://localhost:${server.port}/admin
+        instance:
+          metadata:
+            user.name: ${spring.security.user.name}
+            user.password: ${spring.security.user.password}
+        username: ${spring.security.user.name}
+        password: ${spring.security.user.password}
+      context-path: admin
+      ui:
+        available-languages: en
+
+  jmx:
+    enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: none
+      show-sql: true
+management:
+  server:
+    port: 9000
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+#  level:
+  file:
+    path: logs/spring-boot-application.log
+  pattern:
+    file: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx"
+server:
+  port: 8080
+
+strava:
+  authorizationToken: 2d854e5e68fea439d56c444e1d5f622c38b2c6d0
+  requestUrl: https://www.strava.com/api/v3
+  clientId: 49081
+  clientSecret: 2f9f9a2c5db9207aac31e251a4205c18c43fa237
+  refreshToken: 45adec294c34095e1fd8d0f19cdd42e3b951931c

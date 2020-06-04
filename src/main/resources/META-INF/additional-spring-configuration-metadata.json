@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "strava.authorizationToken",
+      "type": "java.lang.String",
+      "description": "Token to authorize requests for strava api."
+    }
+  ] }
