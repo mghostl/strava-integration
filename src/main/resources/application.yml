@@ -43,8 +43,8 @@ server:
   port: 8080
 
 strava:
-  authorizationToken: 2d854e5e68fea439d56c444e1d5f622c38b2c6d0
+  authorizationToken: 18bacd4114b74d73014b3aa76ecb8125c21cb6cf
   requestUrl: https://www.strava.com/api/v3
-  clientId: 49081
-  clientSecret: 2f9f9a2c5db9207aac31e251a4205c18c43fa237
-  refreshToken: 45adec294c34095e1fd8d0f19cdd42e3b951931c
+  clientId: changeIt
+  clientSecret: changeIt
+  refreshToken: changeIt

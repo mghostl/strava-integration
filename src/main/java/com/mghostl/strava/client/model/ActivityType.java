@@ -12,16 +12,11 @@
 
 package com.mghostl.strava.client.model;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * An enumeration of the types an activity may have.
  */
-@JsonAdapter(ActivityType.Adapter.class)
 public enum ActivityType {
   ALPINESKI("AlpineSki"),
   BACKCOUNTRYSKI("BackcountrySki"),
@@ -61,7 +56,8 @@ public enum ActivityType {
   WORKOUT("Workout"),
   YOGA("Yoga");
 
-  private String value;
+  @JsonValue
+  private final String value;
 
   ActivityType(String value) {
     this.value = value;
@@ -83,18 +79,5 @@ public enum ActivityType {
       }
     }
     return null;
-  }
-
-  public static class Adapter extends TypeAdapter<ActivityType> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final ActivityType enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public ActivityType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return ActivityType.fromValue(String.valueOf(value));
-    }
   }
 }

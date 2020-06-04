@@ -17,6 +17,9 @@ java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 object Version {
     const val springAdmin = "2.1.6"
+    const val mapstruct = "1.2.0.Final"
+    const val okhttp = "2.7.5"
+    const val feignForm = "3.8.0"
 }
 
 val developmentOnly: Configuration by configurations.creating
@@ -50,6 +53,11 @@ repositories {
     }
 }
 
+kapt {
+    arguments {
+        arg("mapstruct.defaultComponentModel", "spring")
+    }
+}
 
 
 dependencies {
@@ -59,8 +67,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
-    implementation("io.github.openfeign.form:feign-form-spring:3.8.0")
-    implementation("io.github.openfeign.form:feign-form:3.8.0")
+    implementation("io.github.openfeign.form:feign-form-spring:${Version.feignForm}")
+    implementation("io.github.openfeign.form:feign-form:${Version.feignForm}")
     implementation("de.codecentric:spring-boot-admin-starter-server:${Version.springAdmin}")
     implementation("de.codecentric:spring-boot-admin-starter-client:${Version.springAdmin}")
 
@@ -75,11 +83,16 @@ dependencies {
     implementation("org.postgresql:postgresql:42.2.12")
 
     implementation("io.swagger.core.v3:swagger-annotations:2.0.0")
-    implementation("com.squareup.okhttp:okhttp:2.7.5")
-    implementation("com.squareup.okhttp:logging-interceptor:2.7.5")
+    implementation("com.squareup.okhttp:okhttp:${Version.okhttp}")
+    implementation("com.squareup.okhttp:logging-interceptor:${Version.okhttp}")
     implementation("com.google.code.gson:gson:2.8.1")
     implementation("io.gsonfire:gson-fire:1.8.3")
     implementation("org.threeten:threetenbp:1.3.5")
+
+    // MapStruct
+    implementation("org.mapstruct:mapstruct:${Version.mapstruct}")
+    kapt("org.mapstruct:mapstruct-processor:${Version.mapstruct}")
+    implementation("org.mapstruct:mapstruct-jdk8:${Version.mapstruct}")
 
     // Dev tools
     developmentOnly("org.springframework.boot:spring-boot-devtools")
