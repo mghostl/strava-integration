@@ -1,3 +1,2 @@
-# backend-kotlin-template
-kotlin spring boot template for fast project starting
 # strava-integration
+service for strava integration for data downloading
