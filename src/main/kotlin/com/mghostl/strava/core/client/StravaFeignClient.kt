@@ -4,6 +4,7 @@ import com.mghostl.strava.client.model.ActivityTotal
 import com.mghostl.strava.client.model.SummaryAthlete
 import com.mghostl.strava.client.model.SummaryClub
 import com.mghostl.strava.core.model.Activity
+import com.mghostl.strava.core.model.Athlete
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam
 interface StravaFeignClient {
 
     @GetMapping("/athlete")
-    fun getAuthenticateAthlete(): SummaryAthlete
+    fun getAuthenticateAthlete(): Athlete
 
     @GetMapping("/athlete/activities")
     fun getAuthenticateAthleteActivities(@RequestParam("page") page: Int = 1,

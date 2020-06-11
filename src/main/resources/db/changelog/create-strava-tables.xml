@@ -1,0 +1,36 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="mghostl" id="create_athletes">
+        <createTable tableName="athlete">
+            <column name="ID" type="bigint">
+                <constraints primaryKey="true" primaryKeyName="pk_athlete"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create_activities" author="mghostl">
+        <createTable tableName="activity">
+            <column name="ID" type="bigint">
+                <constraints primaryKeyName="pk_activity" primaryKey="true"/>
+            </column>
+            <column name="distance" type="float"/>
+            <column name="moving_time" type="bigint"/>
+            <column name="activity_type" type="varchar(50)"/>
+            <column name="start_date" type="timestamp"/>
+            <column name="start_date_local" type="timestamp"/>
+            <column name="average_speed" type="float"/>
+            <column name="max_speed" type="float"/>
+            <column name="has_heart_rate" type="Bool"/>
+            <column name="max_heart_rate" type="float"/>
+            <column name="average_heart_rate" type="float"/>
+            <column name="athlete_id" type="bigint">
+                <constraints foreignKeyName="fk_activity_id" referencedColumnNames="id"
+                referencedTableName="athlete"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

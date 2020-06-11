@@ -1,3 +1,11 @@
 databaseChangeLog:
   - include:
       file: db/changelog/create-user-table.xml
+  - include:
+      file: db/changelog/create-strava-tables.xml
+  - include:
+      file: db/changelog/add-athlete-columns.xml
+  - include:
+      file: db/changelog/add-age-and-zones.xml
+  - include:
+      file: db/changelog/add-zone.xml

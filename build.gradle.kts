@@ -20,6 +20,7 @@ object Version {
     const val mapstruct = "1.2.0.Final"
     const val okhttp = "2.7.5"
     const val feignForm = "3.8.0"
+    const val apachePoi = "3.17"
 }
 
 val developmentOnly: Configuration by configurations.creating
@@ -64,6 +65,7 @@ dependencies {
     // Spring
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-data-rest")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
@@ -93,6 +95,10 @@ dependencies {
     implementation("org.mapstruct:mapstruct:${Version.mapstruct}")
     kapt("org.mapstruct:mapstruct-processor:${Version.mapstruct}")
     implementation("org.mapstruct:mapstruct-jdk8:${Version.mapstruct}")
+
+    // apache POI
+    api("org.apache.poi:poi:${Version.apachePoi}")
+    api("org.apache.poi:poi-ooxml:${Version.apachePoi}")
 
     // Dev tools
     developmentOnly("org.springframework.boot:spring-boot-devtools")
